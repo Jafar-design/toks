@@ -1,0 +1,72 @@
+[
+  {
+    "listing_id": "TC2015-001",
+    "make": "Toyota",
+    "model": "Corolla",
+    "year": 2015,
+    "variant": "LE",
+    "price": 5500000,
+    "currency": "NGN",
+    "mileage": 85000,
+    "location": "Lagos",
+    "listing_url": "https://autochek.africa/cars/TC2015-001",
+    "thumbnail_url": "https://autochek.africa/images/TC2015-001.jpg",
+    "created_at": "2024-01-15T10:30:00Z"
+  },
+  {
+    "listing_id": "TC2015-002", 
+    "make": "Toyota",
+    "model": "Corolla",
+    "year": 2015,
+    "variant": "S",
+    "price": 4800000,
+    "currency": "NGN",
+    "mileage": 125000,
+    "location": "Abuja",
+    "listing_url": "https://autochek.africa/cars/TC2015-002",
+    "thumbnail_url": "https://autochek.africa/images/TC2015-002.jpg",
+    "created_at": "2024-01-12T14:20:00Z"
+  },
+  {
+    "listing_id": "TC2015-003",
+    "make": "Toyota", 
+    "model": "Corolla",
+    "year": 2015,
+    "variant": "XLE",
+    "price": 6200000,
+    "currency": "NGN",
+    "mileage": 65000,
+    "location": "Port Harcourt",
+    "listing_url": "https://autochek.africa/cars/TC2015-003",
+    "thumbnail_url": "https://autochek.africa/images/TC2015-003.jpg",
+    "created_at": "2024-01-18T09:15:00Z"
+  },
+  {
+    "listing_id": "TC2015-004",
+    "make": "Toyota",
+    "model": "Corolla",
+    "year": 2015,
+    "variant": null,
+    "price": 4500000,
+    "currency": "NGN", 
+    "mileage": 145000,
+    "location": "Kano",
+    "listing_url": "https://autochek.africa/cars/TC2015-004",
+    "thumbnail_url": "https://autochek.africa/images/TC2015-004.jpg",
+    "created_at": "2024-01-08T16:45:00Z"
+  },
+  {
+    "listing_id": "TC2015-005",
+    "make": "Toyota",
+    "model": "Corolla", 
+    "year": 2015,
+    "variant": "SE",
+    "price": 5100000,
+    "currency": "NGN",
+    "mileage": 98000,
+    "location": "Ibadan",
+    "listing_url": "https://autochek.africa/cars/TC2015-005",
+    "thumbnail_url": "https://autochek.africa/images/TC2015-005.jpg",
+    "created_at": "2024-01-20T11:30:00Z"
+  }
+]

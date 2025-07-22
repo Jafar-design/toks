@@ -1,0 +1,6 @@
+listing_id,make,model,year,variant,price,currency,mileage,location,listing_url,thumbnail_url,created_at
+TC2015-001,Toyota,Corolla,2015,LE,5500000,NGN,85000,Lagos,https://autochek.africa/cars/TC2015-001,https://autochek.africa/images/TC2015-001.jpg,2024-01-15T10:30:00Z
+TC2015-002,Toyota,Corolla,2015,S,4800000,NGN,125000,Abuja,https://autochek.africa/cars/TC2015-002,https://autochek.africa/images/TC2015-002.jpg,2024-01-12T14:20:00Z
+TC2015-003,Toyota,Corolla,2015,XLE,6200000,NGN,65000,Port Harcourt,https://autochek.africa/cars/TC2015-003,https://autochek.africa/images/TC2015-003.jpg,2024-01-18T09:15:00Z
+TC2015-004,Toyota,Corolla,2015,,4500000,NGN,145000,Kano,https://autochek.africa/cars/TC2015-004,https://autochek.africa/images/TC2015-004.jpg,2024-01-08T16:45:00Z
+TC2015-005,Toyota,Corolla,2015,SE,5100000,NGN,98000,Ibadan,https://autochek.africa/cars/TC2015-005,https://autochek.africa/images/TC2015-005.jpg,2024-01-20T11:30:00Z

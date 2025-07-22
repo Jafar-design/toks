@@ -53,6 +53,8 @@ Examples:
                        help='Run browser with GUI visible')
     parser.add_argument('--rate-limit', type=float, default=1.0,
                        help='Rate limit between requests in seconds (default: 1.0)')
+    parser.add_argument('--max-retries', type=int, default=3,
+                       help='Maximum number of HTTP retry attempts on 5xx errors (default: 3)')
     parser.add_argument('--log-level', choices=['DEBUG', 'INFO', 'WARNING', 'ERROR'],
                        default='INFO', help='Logging level (default: INFO)')
     
@@ -71,7 +73,7 @@ def main() -> int:
         logger.info(f"Starting Autochek scraper for {args.make} {args.model} {args.year}")
         
         # Initialize scraper
-        scraper = AutochekScraper(rate_limit=args.rate_limit, headless=args.headless)
+        scraper = AutochekScraper(rate_limit=args.rate_limit, headless=args.headless, max_retries=args.max_retries)
         
         # Perform search
         vehicles = scraper.search_vehicles(args.make, args.model, args.year)

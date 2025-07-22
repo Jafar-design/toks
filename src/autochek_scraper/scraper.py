@@ -11,24 +11,29 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
+from .retry_utils import RetryableHTTPSession, retry_on_5xx
 
 
 class AutochekScraper:
     """Main scraper class for Autochek Africa vehicle listings."""
     
-    def __init__(self, rate_limit: float = 1.0, headless: bool = True):
+    def __init__(self, rate_limit: float = 1.0, headless: bool = True, max_retries: int = 3):
         """
         Initialize the scraper.
         
         Args:
             rate_limit: Delay between requests in seconds
             headless: Run browser in headless mode
+            max_retries: Maximum number of retry attempts for HTTP errors
         """
         self.rate_limit = rate_limit
         self.headless = headless
+        self.max_retries = max_retries
         self.base_url = "https://autochek.africa"
-        self.session = requests.Session()
-        self.session.headers.update({
+        
+        # Use retryable session instead of regular session
+        self.session = RetryableHTTPSession(max_retries=max_retries)
+        self.session.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
         })
         
@@ -557,11 +562,13 @@ class AutochekScraper:
         
         return has_basic_info and has_identifying_info
     
+    @retry_on_5xx(max_attempts=3, min_wait=1.0, max_wait=10.0)
     def _fallback_scraping(self, make: str, model: str, year: int) -> List[Dict[str, Any]]:
-        """Fallback scraping using requests if Playwright fails."""
-        self.logger.info("Using fallback scraping with requests")
+        """Fallback scraping using requests with retry logic if Playwright fails."""
+        self.logger.info("Using fallback scraping with requests (with retry logic)")
         
         try:
+            # This will now automatically retry on 5xx errors
             response = self.session.get(self.base_url, timeout=30)
             response.raise_for_status()
             
@@ -590,7 +597,7 @@ class AutochekScraper:
             return vehicles
             
         except Exception as e:
-            self.logger.error(f"Fallback scraping failed: {e}")
+            self.logger.error(f"Fallback scraping failed after retries: {e}")
             return []
     
     def save_to_csv(self, vehicles: List[Dict[str, Any]], output_path: str) -> None:
